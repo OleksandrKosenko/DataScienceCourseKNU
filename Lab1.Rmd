@@ -1,0 +1,105 @@
+---
+title: "Lab1 - Kosenko Oleksandr UP-11"
+output: html_document
+date: "2022-10-05"
+---
+
+# Лабораторна робота №1
+
+1.  Створити змінні базових (atomic) типів. Базові типи: character, numeric, integer, complex, logical.
+
+    ```{r setup, include=TRUE}
+    some_character <- "a"
+    print(class(some_character))
+
+    some_numeric <- 1.0
+    print(class(some_numeric))
+
+    some_integer <- 1L
+    print(class(some_integer))
+
+    some_coplex <- 1 + 2i
+    print(class(some_coplex))
+
+    some_logical <- TRUE
+    print(class(some_logical))
+    ```
+
+2.  Створити вектори, які: містить послідовність з 5 до 75; містить числа 3.14, 2.71, 0, 13; 100 значень TRUE.
+
+    ```{r, include=TRUE}
+    first_vector <- c(5:75)
+    second_vector <- c(3.14,2.72,0,13)
+    third_vector <- rep(c(TRUE), times = 100)
+
+    ```
+
+3.  Створити наступну матрицю за допомогою **matrix**, та за допомогою **cbind** або **rbind**
+
+    |     |     |     |
+    |:---:|:---:|:---:|
+    | 0.5 | 1.3 | 3.5 |
+    | 3.9 | 131 | 2.8 |
+    |  0  | 2.2 | 4.6 |
+    |  2  |  7  | 5.1 |
+
+    ```{r, include=TRUE}
+    vector_for_matrix <- c(0.5, 1.3, 3.5, 3.9, 131, 2.8, 0, 2.2, 4.6, 2, 7, 5.1)
+    matrix(vector_for_matrix, nrow = 4, ncol = 3, byrow = TRUE)
+
+    v_cbind_1 <- c(0.5, 3.9, 0, 2)
+    v_cbind_2 <- c(1.3, 131, 2.2, 7)
+    v_cbind_3 <- c(3.5, 2.8, 4.6, 5.1)
+    cbind(v_cbind_1, v_cbind_2, v_cbind_3)
+
+    ```
+
+4.  Створити довільний список (list), в який включити всі базові типи.
+
+    ```{r, include=TRUE}
+    some_list <- list(some_character, some_coplex, some_integer, some_logical, some_numeric)
+    for (item in some_list) {
+        print(item)
+        print(class(item))
+    }
+
+    ```
+
+5.  Створити фактор з трьома рівнями «baby», «child», «adult»
+
+    ```{r, include=TRUE}
+    some_factor <- factor(c("baby", "child", "adult", "child", "adult"), levels = c("baby", "child", "adult"))
+    some_factor
+    ```
+
+6.  Знайти індекс першого значення NA в векторі 1, 2, 3, 4, NA, 6, 7, NA, 9, NA, 11. Знайти кількість значень NA.
+
+    ```{r, include=TRUE}
+    new_vector <- c(1, 2, 3, 4, NA, 6, 7, NA, 9, NA, 11)
+    cat('Index of first "NA" in vector is',match(NA,new_vector))
+    count <- 0
+    for (item in new_vector) {
+        if(is.na(item)) {
+          count <- count + 1
+        }
+    }
+    cat('Quantity of NA in vector is',count)
+    ```
+
+7.  Створити довільний data frame та вивести в консоль.
+
+    ```{r, include=TRUE}
+    dataframe_of_students <- data.frame (
+      Name = c("Alex", "Andriy", "Olesya"),
+      Age = c(22, 22, 23),
+      HasCar = c(FALSE, TRUE, FALSE)
+    )
+    dataframe_of_students
+    ```
+
+8.  Змінити імена стовпців цього data frame.
+
+    ```{r, include=TRUE}
+    colnames(dataframe_of_students)[3] <- "HasPlaystation"
+    dataframe_of_students
+    ```

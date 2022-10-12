@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Kosenko Oleksandr" />
+
+<meta name="date" content="2022-10-07" />
+
+<title>Lab2</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+.main-container {
+max-width: 940px;
+margin-left: auto;
+margin-right: auto;
+}
+img {
+max-width:100%;
+}
+.tabbed-pane {
+padding-top: 12px;
+}
+.html-widget {
+margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+outline: none;
+}
+summary {
+display: list-item;
+}
+details > summary > p:only-child {
+display: inline;
+}
+pre code {
+padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+display: inline-table;
+max-height: 500px;
+min-height: 44px;
+overflow-y: auto;
+border: 1px solid #ddd;
+border-radius: 4px;
+}
+.tabset-dropdown > .nav-tabs > li.active:before {
+content: "";
+font-family: 'Glyphicons Halflings';
+display: inline-block;
+padding: 10px;
+border-right: 1px solid #ddd;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+content: "";
+border: none;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "";
+font-family: 'Glyphicons Halflings';
+display: inline-block;
+padding: 10px;
+border-right: 1px solid #ddd;
+}
+.tabset-dropdown > .nav-tabs > li.active {
+display: block;
+}
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+border: none;
+display: inline-block;
+border-radius: 4px;
+background-color: transparent;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+display: block;
+float: none;
+}
+.tabset-dropdown > .nav-tabs > li {
+display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Lab2</h1>
+<h4 class="author">Kosenko Oleksandr</h4>
+<h4 class="date">2022-10-07</h4>
+
+</div>
+
+
+<ol style="list-style-type: decimal">
+<li>Створить вектор v із 100 елементів командою v &lt;- rnorm(100). Для
+цього вектору виведіть: 10-й елемент; елементи з 10-го по 20-й включно;
+10 елементів починаючи з 20-го; елементи більше 0.</li>
+</ol>
+<pre class="r"><code>vector &lt;- rnorm(100)
+vector</code></pre>
+<pre><code>##   [1]  0.500182003  2.121919525  1.735717034  0.784297559  1.083722773
+##   [6]  0.945252849 -0.225802418  0.650936590 -0.725805553 -0.416680826
+##  [11]  0.152048259  0.129615386 -1.348116359  0.462935883 -0.537414157
+##  [16]  1.414231733 -0.005767634 -0.318503783 -0.282110937 -0.206055930
+##  [21]  0.891069156  0.721929399 -1.822097273  1.349606754 -0.535854527
+##  [26] -1.563692879 -0.009333960 -1.920828291 -2.062318087 -0.910791452
+##  [31] -0.875986567  0.843577553  0.339433779 -2.514994881  2.361350514
+##  [36] -0.953090598  1.417575798  0.286576853  1.125569188 -0.762141195
+##  [41]  2.046350709  0.740540515  0.145218704 -1.520542204 -1.453470697
+##  [46]  0.395749726  0.292256613  0.785296573  0.778564536 -0.277683271
+##  [51]  0.733242051  0.006754036  1.156191524 -1.443118520  1.402017294
+##  [56] -0.737554984 -0.068470989 -0.209593183 -1.156349373 -0.436994795
+##  [61] -0.624962569 -0.524735635 -0.444594300 -1.391210458  0.632247694
+##  [66] -0.105424009  2.591956386 -0.350982740  0.149481922 -0.640662565
+##  [71]  0.208102176  0.271848629  0.641795524  1.433367048 -0.108980492
+##  [76] -2.626570379 -0.534258618  0.667272637  0.417232706  1.039520134
+##  [81] -1.883686254 -1.583363296  0.649681721  0.934176480  1.000378224
+##  [86] -0.529627861  0.088004596  1.113707531 -0.390144642  0.704852001
+##  [91] -1.001627485 -0.745532477  1.059982594 -1.306556945 -0.191627420
+##  [96]  2.201944179 -0.112961540 -0.131591560 -0.830984764 -0.575096137</code></pre>
+<pre class="r"><code>vector[10]</code></pre>
+<pre><code>## [1] -0.4166808</code></pre>
+<pre class="r"><code>vector[10:20]</code></pre>
+<pre><code>##  [1] -0.416680826  0.152048259  0.129615386 -1.348116359  0.462935883
+##  [6] -0.537414157  1.414231733 -0.005767634 -0.318503783 -0.282110937
+## [11] -0.206055930</code></pre>
+<pre class="r"><code>vector[10:29]</code></pre>
+<pre><code>##  [1] -0.416680826  0.152048259  0.129615386 -1.348116359  0.462935883
+##  [6] -0.537414157  1.414231733 -0.005767634 -0.318503783 -0.282110937
+## [11] -0.206055930  0.891069156  0.721929399 -1.822097273  1.349606754
+## [16] -0.535854527 -1.563692879 -0.009333960 -1.920828291 -2.062318087</code></pre>
+<pre class="r"><code>vector[vector&gt;0]</code></pre>
+<pre><code>##  [1] 0.500182003 2.121919525 1.735717034 0.784297559 1.083722773 0.945252849
+##  [7] 0.650936590 0.152048259 0.129615386 0.462935883 1.414231733 0.891069156
+## [13] 0.721929399 1.349606754 0.843577553 0.339433779 2.361350514 1.417575798
+## [19] 0.286576853 1.125569188 2.046350709 0.740540515 0.145218704 0.395749726
+## [25] 0.292256613 0.785296573 0.778564536 0.733242051 0.006754036 1.156191524
+## [31] 1.402017294 0.632247694 2.591956386 0.149481922 0.208102176 0.271848629
+## [37] 0.641795524 1.433367048 0.667272637 0.417232706 1.039520134 0.649681721
+## [43] 0.934176480 1.000378224 0.088004596 1.113707531 0.704852001 1.059982594
+## [49] 2.201944179</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Створіть фрейм (data frame) y командою y &lt;- data.frame(a =
+rnorm(100), b = 1:100, cc = sample(letters, 100, replace = TRUE)). Для
+цього data frame виведіть: останні 10 строк; строки з 10 по 20 включно;
+10-й елемент стовпця b; повністю стовпець cc, при цьому використайте
+ім’я стовпця.</li>
+</ol>
+<pre class="r"><code>y &lt;- data.frame(a = rnorm(100), b = 1:100, cc = sample(letters, 100, replace = TRUE))
+
+y</code></pre>
+<pre><code>##               a   b cc
+## 1    0.51342935   1  e
+## 2   -1.41246510   2  t
+## 3   -0.90801310   3  p
+## 4    0.26980083   4  v
+## 5   -0.54463943   5  e
+## 6    1.15618266   6  m
+## 7    1.50064007   7  m
+## 8    1.19828638   8  p
+## 9    1.68947565   9  j
+## 10  -2.04083871  10  x
+## 11  -1.97203354  11  w
+## 12   1.65513919  12  j
+## 13   0.23012302  13  t
+## 14   1.26990322  14  e
+## 15  -0.14967862  15  j
+## 16   0.02288373  16  x
+## 17   0.64111633  17  g
+## 18   0.53161185  18  f
+## 19  -0.28713041  19  v
+## 20  -2.51067938  20  x
+## 21  -0.77491483  21  s
+## 22   0.73961704  22  u
+## 23  -0.37816206  23  w
+## 24   0.13083966  24  k
+## 25   0.54800290  25  a
+## 26  -1.97702721  26  x
+## 27  -0.05250203  27  o
+## 28   0.95571284  28  a
+## 29  -0.81804986  29  b
+## 30   0.23851637  30  l
+## 31   0.15839206  31  w
+## 32   0.47376116  32  w
+## 33   1.15141644  33  s
+## 34   0.10638145  34  c
+## 35  -0.24942472  35  z
+## 36   0.61951318  36  a
+## 37  -1.11138338  37  c
+## 38  -1.22439749  38  l
+## 39   0.03139182  39  r
+## 40  -1.96150833  40  x
+## 41   1.24633469  41  f
+## 42   1.92134467  42  q
+## 43   0.29678737  43  w
+## 44   0.17795390  44  x
+## 45  -0.49744873  45  h
+## 46   0.82477595  46  b
+## 47  -1.29364400  47  f
+## 48   1.51748195  48  i
+## 49  -1.00619667  49  p
+## 50   0.71222568  50  a
+## 51  -0.47653682  51  o
+## 52   0.11333499  52  w
+## 53   0.37275157  53  a
+## 54   0.61226153  54  r
+## 55  -0.90477963  55  k
+## 56   1.41584143  56  v
+## 57   1.05695391  57  u
+## 58  -0.14980377  58  u
+## 59  -0.08637786  59  v
+## 60  -0.96559660  60  n
+## 61   0.13779368  61  k
+## 62  -1.18597780  62  o
+## 63  -0.74551759  63  x
+## 64  -1.38258408  64  n
+## 65  -1.55644136  65  e
+## 66   1.13335253  66  f
+## 67   0.43951096  67  h
+## 68  -0.04297925  68  p
+## 69   0.76623574  69  x
+## 70   1.35984812  70  r
+## 71  -0.55035416  71  r
+## 72  -0.10886632  72  s
+## 73   0.31967617  73  v
+## 74   0.54560191  74  d
+## 75  -1.21332897  75  b
+## 76  -0.42521290  76  e
+## 77  -0.92690459  77  n
+## 78   0.10369342  78  x
+## 79  -0.63300169  79  o
+## 80   0.48131979  80  a
+## 81  -0.12528570  81  u
+## 82   0.15664913  82  z
+## 83  -1.06416149  83  h
+## 84   0.71978513  84  g
+## 85  -0.57866020  85  s
+## 86   0.25403629  86  e
+## 87  -0.84973168  87  v
+## 88   0.24535286  88  f
+## 89  -1.61605098  89  f
+## 90   0.98960230  90  d
+## 91   0.54315982  91  j
+## 92   0.99586358  92  m
+## 93   0.21549694  93  z
+## 94   0.03601598  94  p
+## 95  -0.84895871  95  n
+## 96  -0.22966459  96  g
+## 97  -1.79997845  97  d
+## 98   1.13440684  98  i
+## 99  -0.38644054  99  c
+## 100 -1.86527974 100  c</code></pre>
+<pre class="r"><code>y[90:100, ]</code></pre>
+<pre><code>##               a   b cc
+## 90   0.98960230  90  d
+## 91   0.54315982  91  j
+## 92   0.99586358  92  m
+## 93   0.21549694  93  z
+## 94   0.03601598  94  p
+## 95  -0.84895871  95  n
+## 96  -0.22966459  96  g
+## 97  -1.79997845  97  d
+## 98   1.13440684  98  i
+## 99  -0.38644054  99  c
+## 100 -1.86527974 100  c</code></pre>
+<pre class="r"><code>y[10:20, ]</code></pre>
+<pre><code>##              a  b cc
+## 10 -2.04083871 10  x
+## 11 -1.97203354 11  w
+## 12  1.65513919 12  j
+## 13  0.23012302 13  t
+## 14  1.26990322 14  e
+## 15 -0.14967862 15  j
+## 16  0.02288373 16  x
+## 17  0.64111633 17  g
+## 18  0.53161185 18  f
+## 19 -0.28713041 19  v
+## 20 -2.51067938 20  x</code></pre>
+<pre class="r"><code>y[10,&quot;b&quot;]</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre class="r"><code>y[ ,&quot;cc&quot;]</code></pre>
+<pre><code>##   [1] &quot;e&quot; &quot;t&quot; &quot;p&quot; &quot;v&quot; &quot;e&quot; &quot;m&quot; &quot;m&quot; &quot;p&quot; &quot;j&quot; &quot;x&quot; &quot;w&quot; &quot;j&quot; &quot;t&quot; &quot;e&quot; &quot;j&quot; &quot;x&quot; &quot;g&quot; &quot;f&quot;
+##  [19] &quot;v&quot; &quot;x&quot; &quot;s&quot; &quot;u&quot; &quot;w&quot; &quot;k&quot; &quot;a&quot; &quot;x&quot; &quot;o&quot; &quot;a&quot; &quot;b&quot; &quot;l&quot; &quot;w&quot; &quot;w&quot; &quot;s&quot; &quot;c&quot; &quot;z&quot; &quot;a&quot;
+##  [37] &quot;c&quot; &quot;l&quot; &quot;r&quot; &quot;x&quot; &quot;f&quot; &quot;q&quot; &quot;w&quot; &quot;x&quot; &quot;h&quot; &quot;b&quot; &quot;f&quot; &quot;i&quot; &quot;p&quot; &quot;a&quot; &quot;o&quot; &quot;w&quot; &quot;a&quot; &quot;r&quot;
+##  [55] &quot;k&quot; &quot;v&quot; &quot;u&quot; &quot;u&quot; &quot;v&quot; &quot;n&quot; &quot;k&quot; &quot;o&quot; &quot;x&quot; &quot;n&quot; &quot;e&quot; &quot;f&quot; &quot;h&quot; &quot;p&quot; &quot;x&quot; &quot;r&quot; &quot;r&quot; &quot;s&quot;
+##  [73] &quot;v&quot; &quot;d&quot; &quot;b&quot; &quot;e&quot; &quot;n&quot; &quot;x&quot; &quot;o&quot; &quot;a&quot; &quot;u&quot; &quot;z&quot; &quot;h&quot; &quot;g&quot; &quot;s&quot; &quot;e&quot; &quot;v&quot; &quot;f&quot; &quot;f&quot; &quot;d&quot;
+##  [91] &quot;j&quot; &quot;m&quot; &quot;z&quot; &quot;p&quot; &quot;n&quot; &quot;g&quot; &quot;d&quot; &quot;i&quot; &quot;c&quot; &quot;c&quot;</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Створіть вектор z з елементами 1, 2, 3, NA, 4, NA, 5, NA. Для цього
+вектору: виведіть всі елементи, які не NA; підрахуйте середнє значення
+всіх елементів цього вектору без NA значень та з NA значеннями.</li>
+</ol>
+<pre class="r"><code>z&lt;-c(1,2,3,NA,4,NA,5,NA)
+z1&lt;-is.na(z)
+
+z1</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
+<pre class="r"><code>z[!z1]</code></pre>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre class="r"><code>z2&lt;-z[!z1]
+mean(z2)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>mean(z)</code></pre>
+<pre><code>## [1] NA</code></pre>
+
+
+
+
+</div>
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

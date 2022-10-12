@@ -40,16 +40,13 @@ y[ ,"cc"]
 
 ```{r, include=TRUE}
 z<-c(1,2,3,NA,4,NA,5,NA)
-z1<-is.na(z)
 
-z1
-
-z[!z1]
+print(z, na.rm = TRUE)
 
 
-z2<-z[!z1]
-mean(z2)
 
 mean(z)
+
+mean(z, na.rm = TRUE)
 
 ```

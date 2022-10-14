@@ -1,0 +1,79 @@
+---
+title: "Lab3"
+author: "Kosenko Oleksandr"
+date: "2022-10-14"
+output: html_document
+---
+
+1.  Які назви стовпців файлу даних?
+
+```{r, include=TRUE}
+my_directory <- file.path("C:", "Users", "Alex", "Desktop", "hw1_data.csv")
+
+hw1_data <- read.csv(my_directory)
+
+colnames(hw1_data)
+```
+
+2.  Виведіть перші 6 строк фрейму даних.
+
+```{r, include=TRUE}
+hw1_data[1:6, ]
+
+head(hw1_data,6)
+```
+
+3.  Скільки спостерігань (строк) в дата фреймі?
+
+```{r, include=TRUE}
+nrow(hw1_data)
+```
+
+4.  Функція columnmean(x, removeNA), яка розраховує середнє значення (mean) по кожному стовпцю матриці, або data frame. Логічний параметр removeNA вказує, чи видаляти NA значення. По замовчуванню він дорівнює TRUE.
+
+```{r, include=TRUE}
+rows <- nrow(hw1_data)
+
+hw1_data[rows:10-rows, ]
+
+tail(hw1_data,10)
+```
+
+5.  Як багато значень «NA» в стовпці «Ozone»?
+
+```{r, include=TRUE}
+length(hw1_data$Ozone[is.na(hw1_data$Ozone)])
+```
+
+6.  Яке середнє (mean) стовпця «Ozone». Виключити «NA» значення.
+
+```{r, include=TRUE}
+mean(hw1_data$Ozone, na.rm = TRUE)
+```
+
+7.  Виведіть частину набору даних (subset) зі значенням «Ozone» \> 31 та «Temp» \> 90. Яке середнє (mean) значень «Solar.R» в цьому наборі даних (subset)?
+
+```{r, include=TRUE}
+ozone_and_temp <- subset(hw1_data, hw1_data$Ozone > 31 & hw1_data$Temp > 90)
+ozone_and_temp
+
+mean(ozone_and_temp$Solar.R)
+```
+
+8.  Яке середнє значення (mean) для «Temp» для червня («Month» дорівнює 6)?
+
+```{r, include=TRUE}
+month_six <- subset(hw1_data, hw1_data$Month == 6)
+month_six
+
+mean(month_six$Temp)
+```
+
+9. Яке максимальне значення «Ozone» для травня («Month» дорівнює 5)?
+
+```{r, include=TRUE}
+month_five <- subset(hw1_data, hw1_data$Month == 5)
+month_five
+
+max(month_five$Ozone,na.rm = TRUE)
+```

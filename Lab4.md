@@ -31,7 +31,7 @@
 
 
 
-<h1 class="title toc-ignore">Lab3</h1>
+<h1 class="title toc-ignore">Lab4</h1>
 <h4 class="author">Kosenko Oleksandr</h4>
 <h4 class="date">2022-10-14</h4>
 
